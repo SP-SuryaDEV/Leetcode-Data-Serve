@@ -1,0 +1,4 @@
+pandas
+st-gsheets-connection
+backoff
+streamlit
