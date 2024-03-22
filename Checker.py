@@ -8,7 +8,7 @@ def fetch_input_data():
     conn = st.experimental_connection('gsheets', type=GSheetsConnection)
     spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1d0foz9yjxydkXHDHtdNFf0LQtnIuneowUnRYqUx6vzY/'
     
-    df = conn.read(worksheet="Input", usecols=list(range(9)))
+    df = conn.read(worksheet="Input", usecols=list(range(9)), ttl=100)
     df.drop(how='all')
 
     st.write(df)
