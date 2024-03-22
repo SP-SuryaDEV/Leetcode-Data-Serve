@@ -8,7 +8,7 @@ def read_usernames():
     spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1d0foz9yjxydkXHDHtdNFf0LQtnIuneowUnRYqUx6vzY/'
     conn = st.experimental_connection("gsheets", type=GSheetsConnection)
     df = conn.read(worksheet="Input", usecols=list(range(9)), ttl=100)
-    df.drop(how='all')
+    df.dropna(how='all', inplace=True)
     return list(df['Username'].str.lower())
 
 class ForbiddenError(Exception):
